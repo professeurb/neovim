@@ -1,0 +1,39 @@
+{
+    "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
+    "Lua.completion.autoRequire": false,
+    "Lua.diagnostics.globals": [
+        "vim",
+        "ngx"
+    ],
+    "Lua.runtime.version": "LuaJIT",
+    "Lua.workspace.checkThirdParty": false,
+    "Lua.workspace.library": [
+        "/Users/olivier/.config/nvim",
+        "/Users/olivier/.local/share/nvim/site",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/fidget.nvim",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/LuaSnip",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/mason-lspconfig.nvim",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/mason.nvim",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/nvim-cmp",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/onedark.nvim",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/packer.nvim",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/plenary.nvim",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/telescope.nvim",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/vim-rhubarb",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/vim-sleuth",
+        "/usr/local/Cellar/neovim/HEAD-f8c6718/share/nvim/runtime",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp/after",
+        "/Users/olivier/.local/share/nvim/site/pack/packer/start/cmp_luasnip/after",
+        "${3rd}/luassert/library",
+        "${3rd}/OpenResty/library"
+    ]
+}

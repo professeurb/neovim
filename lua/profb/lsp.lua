@@ -10,7 +10,7 @@ local servers = {
     latexFormatter = "latexindent",
     latexindent = { modifyLineBreaks = false },
   },
-  ocamllsp = {},
+  ocamllsp = { cmd = { "ocamllsp", "--fallback-read-dot-merlin" } },
   pylsp = {},
   svelte = {},
   sumneko_lua = {

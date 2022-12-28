@@ -13,7 +13,9 @@ function M.setup()
       -- `false` will disable the whole extension
       enable = true,
       additional_vim_regex_highlighting = true
-    },
+    },indent = {
+    enable = true
+  },
     rainbow = { enable = true },
     context_commentstring = { enable = true,
       enable_autocmd = false, },
