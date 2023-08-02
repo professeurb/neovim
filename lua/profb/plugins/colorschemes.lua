@@ -1,6 +1,6 @@
-return { 
+return {
   { "rebelot/kanagawa.nvim", event = "VeryLazy" },
-  { "folke/tokyonight.nvim", event = "VeryLazy"},
+  { "folke/tokyonight.nvim", event = "VeryLazy" },
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -12,9 +12,11 @@ return {
       }
     }
   },
-  { "EdenEast/nightfox.nvim", event = "VeryLazy" },
-  { "ellisonleao/gruvbox.nvim", event = "VeryLazy" },
-  { "numToStr/Sakura.nvim", event = "VeryLazy"  },
-  { "dracula/vim", event = "VeryLazy"  },
-  { "rose-pine/neovim", name = "rose-pine", event = "VeryLazy"  }
+  { "EdenEast/nightfox.nvim",           event = "VeryLazy" },
+  { "ellisonleao/gruvbox.nvim",         event = "VeryLazy" },
+  { "numToStr/Sakura.nvim",             event = "VeryLazy" },
+  { "dracula/vim",                      event = "VeryLazy" },
+  { "rose-pine/neovim",                 name = "rose-pine", event = "VeryLazy" },
+  { "fenetikm/falcon",                  event = "VeryLazy" },
+  { "nyoom-engineering/oxocarbon.nvim", event = "VeryLazy" },
 }

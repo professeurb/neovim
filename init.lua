@@ -6,12 +6,12 @@ if not vim.loop.fs_stat(lazypath) then
     "git",
     "clone",
     "--filter=blob:none",
-    "--single-branch",
     "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
     lazypath,
   })
 end
-vim.opt.runtimepath:prepend(lazypath)
+vim.opt.rtp:prepend(lazypath)
 
 require('profb/mappings')
 require('profb/options')
@@ -19,7 +19,7 @@ require('profb/options')
 require("lazy").setup("profb/plugins", {
   defaults = { lazy = true },
   install = { colorscheme = { "kanagawa", "nightfox" } },
-  checker = { enabled = true },
+  checker = { enabled = true, notify = false },
   change_detection = {
     notify = false,
   },
@@ -40,4 +40,3 @@ require("lazy").setup("profb/plugins", {
 })
 
 vim.cmd([[ colorscheme kanagawa ]])
-
