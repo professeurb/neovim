@@ -17,45 +17,6 @@ function map(client, buffer, lhs, rhs, opts)
 end
 
 return {
-  -- {
-  --   "neovim/nvim-lspconfig",
-  --   opts = {
-  --     capabilities = {
-  --       textDocument = {
-  --         foldingRange = {
-  --           dynamicRegistration = false,
-  --           lineFoldingOnly = true,
-  --         }
-  --       }
-  --     },
-  --     on_attach = function(client, bufnr)
-  --       local opts = { noremap = true, silent = true }
-  --       local wk = require "which-key"
-  --       wk.register(
-  --         {
-  --           ["gd"] = { "<cmd>Telescope lsp_definitions<CR>", "Goto definitions" },
-  --           ["<leader>cr"] = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" }
-  --         }
-  --       )
-  --       vim.api.nvim_buf_set_keymap(bufnr, "n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
-  --       -- vim.keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", { silent = true, desc = "Goto definition" })
-  --       vim.api.nvim_buf_set_keymap(bufnr, "n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
-  --       vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
-  --       vim.api.nvim_buf_set_keymap(bufnr, "v", "<C-k>", "<cmd>lua vim.lsp.buf.range_code_action()<CR>", opts)
-  --       vim.api.nvim_buf_set_keymap(bufnr, "n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
-  --       -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>s", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
-  --       -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>lr", "<cmd>lua vim.lsp.buf.rename()<CR>", opts)
-  --       vim.api.nvim_buf_set_keymap(bufnr, "n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
-  --       -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<leader>f", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-  --       vim.api.nvim_buf_set_keymap(bufnr, "n", "[d", '<cmd>lua vim.diagnostic.goto_prev({ border = "single" })<CR>',
-  --         opts)
-  --       vim.api.nvim_buf_set_keymap(bufnr, "n", "]d", '<cmd>lua vim.diagnostic.goto_next({ border = "single" })<CR>',
-  --         opts)
-  --       -- vim.keymap.set("n", "<leader>cr", "<cmd>lua vim.lsp.buf.rename()<CR>",
-  --       --   { silent = true, desc = "Rename" })
-  --     end
-  --   }
-  -- },
   { "williamboman/mason.nvim", cmd = "Mason", config = true },
   {
     "williamboman/mason-lspconfig.nvim",
@@ -63,7 +24,7 @@ return {
     opts = {
       automatic_installation = true,
       ensure_installed = {
-        "texlab", "tailwindcss", "ocamllsp", "pylsp", "svelte", "lua_ls", "rnix", "clangd", "marksman"
+        "texlab", "tailwindcss", "ocamllsp", "pylsp", "svelte", "lua_ls", "nil_ls", "clangd", "marksman"
       }
     }
   },
@@ -126,7 +87,7 @@ return {
           },
         },
         rust_analyzer = {},
-        rnix = {},
+        nil_ls = { settings = { ['nil'] = { formatting = { command = { "alejandra", "-q" } } } } },
         clangd = {},
         marksman = {}
       }
