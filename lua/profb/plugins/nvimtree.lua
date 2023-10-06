@@ -1,9 +1,9 @@
 return {
-  "kyazdani42/nvim-tree.lua",
+  'nvim-tree/nvim-tree.lua',
+  enabled = true,
   keys = {
-    { "<leader>e", "<cmd>NvimTreeToggle<cr>", "Explorer"
-    }
+    { '<leader>e', '<cmd>NvimTreeToggle<cr>', 'Explorer' },
   },
-  cmd = "NvimTreeToggle",
-  config = true
+  cmd = 'NvimTreeToggle',
+  config = true,
 }

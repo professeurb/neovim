@@ -12,8 +12,8 @@ return {
     wk.register({
       w = { "<cmd>update!<CR>", "Save" },
       q = { "<cmd>lua require('util').smart_quit()<CR>", "Quit" },
-      f = { name = "+File" },
-      g = { name = "+Git" },
+      f = { name = "Find…" },
+      g = { name = "Git…" },
       c = {
         name = "+Code",
         x = {

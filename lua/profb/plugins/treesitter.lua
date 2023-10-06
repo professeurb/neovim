@@ -14,7 +14,7 @@ function M.config()
   local treesitter = require("nvim-treesitter.configs")
   treesitter.setup({
     -- a list of parser names, or "all"
-    ensure_installed =  "all" ,
+    ensure_installed = "all",
     -- ensure_installed = {
     -- 	"bash",
     -- 	"c",
@@ -53,8 +53,8 @@ function M.config()
     -- 	"scss",
     -- 	"sql",
     -- 	"svelte",
--- 	"teal",
--- 	"toml",
+    -- 	"teal",
+    -- 	"toml",
     -- 	"tsx",
     -- 	"typescript",
     -- 	"vhs",
@@ -76,15 +76,15 @@ function M.config()
       disable = {},
       additional_vim_regex_highlighting = false,
     },
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = "<C-space>",
-        node_incremental = "<C-space>",
-        scope_incremental = "<C-s>",
-        node_decremental = "<C-bs>",
-      },
-    },
+    -- incremental_selection = {
+    --   enable = true,
+    --   keymaps = {
+    --     init_selection = "<C-space>",
+    --     node_incremental = "<C-space>",
+    --     scope_incremental = "<C-s>",
+    --     node_decremental = "<C-bs>",
+    --   },
+    -- },
     indent = {
       enable = true,
     },
