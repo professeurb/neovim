@@ -1,14 +1,13 @@
 return {
   'nvim-tree/nvim-tree.lua',
   enabled = true,
-  keys = { { '<leader>e', '<cmd>NvimTreeToggle<cr>', 'Explorer' } },
+  keys = { { '<leader>e', '<cmd>NvimTreeToggle<cr>', desc = 'Explorer' } },
   -- cmd = 'NvimTreeToggle',
-  -- opts = { actions = { open_file = { quit_on_open = true } } },
   config = function()
     local nvimtree = require 'nvim-tree'
 
     nvimtree.setup {
-      -- actions = { open_file = { quit_on_open = true } }
+      -- actions = { open_file = { quit_on_open = true } },
     }
 
     -- https://github.com/nvim-tree/nvim-tree.lua/wiki/Auto-Close
