@@ -2,6 +2,7 @@ return {
   { 'rebelot/kanagawa.nvim', event = 'VeryLazy' },
   { 'folke/tokyonight.nvim', event = 'VeryLazy' },
   {
+    -- https://github.com/catppuccin/nvim
     'catppuccin/nvim',
     name = 'catppuccin',
     event = 'VeryLazy',
@@ -9,6 +10,8 @@ return {
       integrations = {
         nvimtree = true,
         which_key = true,
+        mason = true,
+        ufo = true,
       },
     },
   },
@@ -21,4 +24,5 @@ return {
   { 'nyoom-engineering/oxocarbon.nvim', event = 'VeryLazy' },
   { 'xero/miasma.nvim',                 event = 'VeryLazy' },
   { 'bluz71/vim-nightfly-colors',       event = 'VeryLazy', name = 'nightfly' },
+  { 'everforest-nvim',                  event = 'VeryLazy' },
 }

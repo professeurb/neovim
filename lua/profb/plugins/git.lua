@@ -1,5 +1,7 @@
 return {
   {
+    -- https://www.youtube.com/watch?v=K-FKqXj8BAQ
+    -- https://github.com/NeogitOrg/neogit
     'NeogitOrg/neogit',
     cmd = 'Neogit',
     dependencies = {

@@ -18,13 +18,15 @@ end
 
 return {
   {
+    -- https://github.com/neovim/nvim-lspconfig
     'neovim/nvim-lspconfig',
     event = 'BufReadPre',
     dependencies = {
-      { 'folke/neodev.nvim',                config = true },
+      { 'folke/neodev.nvim', config = true },
       { 'j-hui/fidget.nvim' },
       { 'williamboman/mason-lspconfig.nvim' },
       { 'folke/which-key.nvim' },
+      { 'nvim-telescope/telescope.nvim' },
     },
     config = function()
       local lspconfig = require 'lspconfig'
@@ -37,12 +39,20 @@ return {
         },
         ocamllsp = { cmd = { 'ocamllsp', '--fallback-read-dot-merlin' } },
         pylsp = { plugins = { black = { enabled = true } } },
+        astro = {},
         svelte = {},
+        bashls = {},
+        html = {},
         lua_ls = {
           settings = {
             Lua = {
+              runtime = { version = 'LuaJIT' },
               workspace = {
                 checkThirdParty = false,
+                library = {
+                  '${3rd}/luv/library',
+                  unpack(vim.api.nvim_get_runtime_file('', true)),
+                },
               },
               completion = {
                 callSnippet = 'Replace',
@@ -63,17 +73,16 @@ return {
         callback = function(args)
           local bufnr = args.buf
           local client = vim.lsp.get_client_by_id(args.data.client_id)
+          local builtin = require 'telescope.builtin'
           map(client, bufnr, 'gd', 'Telescope lsp_definitions', { desc = 'Goto Definition' })
           map(client, bufnr, 'gr', 'Telescope lsp_references', { desc = 'References' })
           -- map(client, bufnr, 'gD', 'Telescope lsp_declarations', { desc = 'Goto Declaration' })
           -- map(client, bufnr, 'gI', 'Telescope lsp_implementations', { desc = 'Goto Implementation' })
           map(client, bufnr, 'gb', 'Telescope lsp_type_definitions', { desc = 'Goto Type Definition' })
-          map(client, bufnr, 'K', vim.lsp.buf.hover, { desc = 'Hover' })
-          map(client, bufnr, '<leader>cr', vim.lsp.buf.rename, { expr = true, desc = 'Rename', has = 'rename' })
-          map(client, bufnr, '<leader>cs', require('telescope.builtin').lsp_document_symbols,
-            { desc = 'Document Symbols' })
-          map(client, bufnr, '<leader>cS', require('telescope.builtin').lsp_dynamic_workspace_symbols,
-            { desc = 'Workspace Symbols' })
+          map(client, bufnr, 'K', vim.lsp.buf.hover, { desc = 'Hover Documentation' })
+          map(client, bufnr, '<leader>cr', vim.lsp.buf.rename, { expr = true, desc = '[R]ename', has = 'rename' })
+          map(client, bufnr, '<leader>cs', builtin.lsp_document_symbols, { desc = 'Document Symbols' })
+          map(client, bufnr, '<leader>cS', builtin.lsp_dynamic_workspace_symbols, { desc = 'Workspace Symbols' })
         end,
       })
       vim.cmd [[
@@ -82,6 +91,9 @@ return {
     autocmd BufWritePre * lua vim.lsp.buf.format({ async = false })
   augroup end
 ]]
+
+      -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+      -- capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
     end,
   },
   {
@@ -107,19 +119,20 @@ return {
       }
       mason_tool_installer.setup {
         ensure_installed = {
-          'prettierd',     -- prettier formatter
-          'stylua',        -- lua formatter
-          'isort',         -- python formatter
+          'prettierd', -- prettier formatter
+          'stylua', -- lua formatter
+          'isort', -- python formatter
           'blackd-client', -- python formatter
           'black',
-          'pylint',        -- python linter
-          'eslint_d',      -- js linter
+          'pylint', -- python linter
+          'eslint_d', -- js linter
           -- 'alejandra',
           'latexindent',
           'clang-format',
           'php-cs-fixer',
           'ocamlformat',
           'jdtls',
+          'beautysh',
         },
       }
     end,
@@ -141,22 +154,25 @@ return {
           java = { 'google-java-format' },
           json = { 'prettierd' },
           lua = { 'stylua' },
-          markdown = { 'prettierd' },
+          markdown = { 'prettier' },
+          mdx = { 'prettier' },
           nix = { 'alejandra' },
           ocaml = { 'ocamlformat' },
-          php = { 'php_cs_fixer' },
+          php = { 'pretty-php' },
           python = { 'isort', 'black' },
           svelte = { 'prettierd' },
           tex = { 'latexindent' },
           typescript = { 'prettierd' },
           typescriptreact = { 'prettierd' },
           yaml = { 'prettierd' },
+          astro = { 'prettierd' },
         },
         format_on_save = {
           lsp_fallback = true,
           async = false,
           timeout_ms = 500,
         },
+        notify_on_error = false,
       }
       -- conform.formatters.clang_format = { '-style=~/.clang-format' }
 

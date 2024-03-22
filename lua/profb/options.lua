@@ -61,10 +61,23 @@ vim.opt.wildignore:append '**/node_modules/*'
 vim.opt.wildignore:append '**/.git/*'
 vim.opt.wildignore:append '**/build/*'
 
+vim.g.have_nerd_font = true -- because I do
+
 -- Highlight on yank
-vim.cmd [[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
-  augroup end
-]]
+-- vim.cmd [[
+--   augroup YankHighlight
+--     autocmd!
+--     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+--   augroup end
+-- ]]
+
+-- Highlight when yanking (copying) text
+--  Try it with `yap` in normal mode
+--  See `:help vim.highlight.on_yank()`
+vim.api.nvim_create_autocmd('TextYankPost', {
+  desc = 'Highlight when yanking (copying) text',
+  group = vim.api.nvim_create_augroup('YankHightlight', { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})

@@ -59,6 +59,10 @@ return {
     config = true,
   },
   {
+    -- https://github.com/kylechui/nvim-surround
+    -- The three "core" operations of add/delete/change
+    -- can be done with the keymaps ys{motion}{char}, ds{char},
+    -- and cs{target}{replacement}, respectively.
     'kylechui/nvim-surround',
     version = '*',
     event = 'VeryLazy',

@@ -5,12 +5,18 @@ return {
     'folke/trouble.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     cmd = { 'TroubleToggle' },
-    keys = { { '<leader>tt', '<cmd>TroubleToggle<cr>', desc = 'Trouble' } },
+    keys = { { '<leader>tt', '<cmd>TroubleToggle<cr>', desc = '[T]oggle [T]rouble' } },
     config = true,
   },
-  { 'tummetott/unimpaired.nvim', event = 'VeryLazy', config = true },
+  {
+    -- https://github.com/tummetott/unimpaired.nvim
+    'tummetott/unimpaired.nvim',
+    event = 'VeryLazy',
+    config = true,
+  },
   {
     'nvim-tree/nvim-web-devicons',
+    enabled = vim.g.have_nerd_font,
     config = {
       default = true,
     },
@@ -31,15 +37,31 @@ return {
     },
   },
   {
+    -- https://github.com/folke/todo-comments.nvim
+    'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    keys = {
+      { '<leader>td', '<cmd>TodoTrouble<cr>', desc = '[T]oggle to[D]os' },
+      { '<leader>ft', '<cmd>TodoTelescope<cr>', desc = '[F]ind [T]odos' },
+    },
+    event = 'VimEnter',
+    opts = {},
+  },
+  {
     'abecodes/tabout.nvim',
     dependencies = 'nvim-treesitter/nvim-treesitter',
     cmd = { 'Tabout', 'TaboutBack', 'TaboutToggle' },
-    event = 'VeryLazy',
+    event = 'VimEnter',
     config = function()
       require('tabout').setup { ignore_beginning = false }
     end,
   },
   {
+    '2kabhishek/termim.nvim',
+    cmd = { 'Fterm', 'FTerm', 'Sterm', 'STerm', 'Vterm', 'VTerm' },
+  },
+  {
+    -- https://github.com/stevearc/oil.nvim
     'stevearc/oil.nvim',
     opts = {},
     dependencies = { 'nvim-tree/nvim-web-devicons' },
@@ -52,22 +74,18 @@ return {
     'hedyhli/outline.nvim',
     lazy = true,
     cmd = { 'Outline', 'OutlineOpen' },
-    keys = { -- Example mapping to toggle outline
-      { '<leader>to', '<cmd>Outline<CR>', desc = 'Toggle outline' },
-    },
-    opts = {
-      -- Your setup opts here
-    },
+    keys = { { '<leader>to', '<cmd>Outline<CR>', desc = '[T]oggle [O]utline' } },
+    opts = {},
   },
   {
+    -- https://github.com/chentoast/marks.nvim
     'chentoast/marks.nvim',
     config = true,
-    event = 'VeryLazy',
+    event = 'VimEnter',
   },
   {
     'folke/flash.nvim',
-    event = 'VeryLazy',
-    ---@type Flash.Config
+    event = 'VimEnter',
     opts = {},
     -- stylua: ignore
     keys = {
@@ -90,14 +108,16 @@ return {
       },
     },
   },
-  {
+  { -- A Neovim plugin helping you establish good command workflow and habit
     'm4xshen/hardtime.nvim',
+    enabled = false,
+    event = 'VimEnter',
     dependencies = { 'MunifTanjim/nui.nvim', 'nvim-lua/plenary.nvim' },
     opts = {},
   },
   {
     'sustech-data/wildfire.nvim',
-    event = 'VeryLazy',
+    event = 'VimEnter',
     dependencies = { 'nvim-treesitter/nvim-treesitter' },
     opts = {
       keymaps = {
@@ -108,8 +128,9 @@ return {
     },
   },
   {
+    -- https://github.com/Pheon-Dev/pigeon
     'Pheon-Dev/pigeon',
-    event = 'VeryLazy',
+    event = 'VimEnter',
     opts = {
       enabled = false,
       os = 'osx', -- windows, osx
@@ -117,49 +138,6 @@ return {
       callbacks = {
         killing_pigeon = nil,
         respawning_pigeon = nil,
-      },
-    },
-  },
-  {
-    'nvim-lualine/lualine.nvim',
-    dependencies = {
-      'nvim-tree/nvim-web-devicons',
-      'meuter/lualine-so-fancy.nvim',
-    },
-    event = 'BufReadPre',
-    opts = {
-      options = {
-        theme = 'seoul256',
-        component_separators = { left = '│', right = '│' },
-        section_separators = { left = '', right = '' },
-        globalstatus = true,
-        refresh = {
-          statusline = 100,
-        },
-      },
-      sections = {
-        lualine_a = {
-          { 'fancy_mode', width = 3 },
-        },
-        lualine_b = {
-          { 'fancy_branch' },
-          { 'fancy_diff' },
-        },
-        lualine_c = {
-          { 'fancy_cwd', substitute_home = true },
-        },
-        lualine_x = {
-          { 'fancy_macro' },
-          { 'fancy_diagnostics' },
-          { 'fancy_searchcount' },
-          { 'fancy_location' },
-        },
-        lualine_y = {
-          { 'fancy_filetype', ts_icon = '' },
-        },
-        lualine_z = {
-          { 'fancy_lsp_servers' },
-        },
       },
     },
   },
